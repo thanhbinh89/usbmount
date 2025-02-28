@@ -17,7 +17,10 @@
     MOUNTPOINTS="/media/usb0"
 ## Create scripts to restart docker services after mount successfully
     sudo vi /etc/usbmount/mount.d/01_restart_service
-#### Add this line to file then close:
+#### Add this lines to file then close:
+    #!/bin/bash
+    set -e
     sudo docker restart media upload
+    exit 0
 #### Change permission to excute
     sudo chmod +x /etc/usbmount/mount.d/01_restart_service
